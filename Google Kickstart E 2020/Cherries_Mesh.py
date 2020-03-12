@@ -56,15 +56,6 @@ def solve():
 
     return sugar + 2*(uf.distinctnode()-1)
 
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     for i in range(int(input())):
         print("Case #" + str(i+1) + ": " + str(solve()))
