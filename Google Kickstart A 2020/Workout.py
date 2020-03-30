@@ -1,17 +1,17 @@
 '''
 
-Round A 2
+Round A 3
 https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b
 
 '''
 
 import math
 import collections
-def ispossible(diffvalue,diff,additional):
-    for distance in sorted(diff,reverse=True):
-        if distance <= diffvalue:
+def ispossible(midvalue,distances,additional):
+    for distance in sorted(distances,reverse=True):
+        if distance <= midvalue:
             break
-        additional -= (math.ceil(distance/diffvalue)-1)*diff[distance]
+        additional -= (math.ceil(distance/midvalue)-1)*distances[distance]
         if additional < 0:
             break
     return additional >= 0
@@ -21,13 +21,13 @@ def solve():
     times = list(map(int,input().split()))
     left = 1
     right = 1
-    diff = collections.defaultdict(int)
+    distances = collections.defaultdict(int)
     for i in range(1,len(times)):
-        diff[times[i]-times[i-1]] += 1
+        distances[times[i]-times[i-1]] += 1
         right = max(right,times[i]-times[i-1])
     while left <= right:
         mid = left + (right-left)//2
-        if ispossible(mid,diff,additional):
+        if ispossible(mid,distances,additional):
             right = mid - 1
         else:
             left = mid + 1
