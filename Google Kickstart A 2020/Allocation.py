@@ -1,3 +1,10 @@
+'''
+
+Round A 1
+https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f56
+
+'''
+
 def solve():
     noofhouses, budget = map(int,input().split())
     houses = list(map(int,input().split()))
